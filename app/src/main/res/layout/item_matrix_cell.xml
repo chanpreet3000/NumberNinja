@@ -7,14 +7,13 @@
     app:cardCornerRadius="3dp"
     app:cardElevation="4dp">
 
-    <EditText
-        android:id="@+id/edit_text"
+    <TextView
+        android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/matrix_cell_selector"
         android:focusableInTouchMode="false"
         android:gravity="center"
-        android:inputType="numberSigned"
         android:maxLength="1"
         android:maxLines="1"
         android:text=""
