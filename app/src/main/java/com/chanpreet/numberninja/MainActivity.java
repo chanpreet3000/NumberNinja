@@ -14,6 +14,7 @@ import com.chanpreet.numberninja.databinding.ActivityMainBinding;
 import com.chanpreet.numberninja.databinding.ItemMatrixCellBinding;
 
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,9 +27,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        MatrixBuilder.MatrixInfo matrixInfo = MatrixBuilder.build(getApplicationContext(), 6, 8);
+        String equation = Util.list.get(((new Random()).nextInt()) % (Util.list.size()));
+
+
+        MatrixBuilder.MatrixInfo matrixInfo = MatrixBuilder.build(getApplicationContext(), 6, equation.length());
         binding.linearLayout.addView(matrixInfo.getView());
-        gameInstance = new GameInstance(getApplicationContext(), matrixInfo);
+        gameInstance = new GameInstance(getApplicationContext(), matrixInfo, equation);
 
         binding.equalBtn.setOnClickListener(v -> gameInstance.CheckButtonClicked());
         binding.backspaceBtn.setOnClickListener(v -> gameInstance.removeCharacter());
